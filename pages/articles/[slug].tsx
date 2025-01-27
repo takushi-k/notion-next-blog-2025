@@ -15,6 +15,7 @@ import { getText } from '../../utils/property'
 import Block from '../../components/Block'
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  // console.log('getStaticPaths!!!!!!!!!!! pages/articles/[slug].tsx')
   const { results } = await fetchPages({})
   const paths = results.map((page: any) => {
     return {
@@ -23,6 +24,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
       },
     }
   })
+  // console.log(paths)
+
   return {
     paths: paths,
     fallback: 'blocking',
@@ -30,11 +33,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  console.log('getServerSideProps pages/articles/[slug].tsx　コール')
+  // console.log('getStaticProps pages/articles/[slug].tsx　コール')
   const { slug } = ctx.params as Params
 
   const { results } = await fetchPages({ slug: slug })
-  console.log('results: ', results)
+  // console.log('results: ', results)
   const page = results[0]
   const pageId = page.id
   const { results: blocks } = await fetchBlocksByPageId(pageId)

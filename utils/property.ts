@@ -26,7 +26,7 @@ export const getDate = (date: { start: string }) => {
 }
 
 export const getMultiSelect = (multiSelect: [{ name: string }]) => {
-  console.log('getMultiSelect', multiSelect)
+  // console.log('getMultiSelect', multiSelect)
   try {
     return multiSelect.map((tag) => tag.name)
   } catch (err) {

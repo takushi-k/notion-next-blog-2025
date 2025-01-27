@@ -19,6 +19,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
       pathSet.add(tag)
     }
   }
+  // console.log(Array.from(pathSet))
 
   const paths = Array.from(pathSet).map((tag) => {
     return {
@@ -27,6 +28,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
       },
     }
   })
+  // console.log(paths)
+
   return {
     paths: paths,
     fallback: 'blocking',
