@@ -46,7 +46,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       page: page,
       blocks: blocks,
     },
-    revalidate: 10,
+    // revalidate: 10,
   }
 }
 
